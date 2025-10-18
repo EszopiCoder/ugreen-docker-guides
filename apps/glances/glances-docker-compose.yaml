@@ -1,0 +1,23 @@
+services:
+  glances:
+    container_name: glances
+    image: nicolargo/glances:latest-full
+    healthcheck:
+     test: curl -f http://localhost:61208/ || exit 1
+    mem_limit: 4g
+    cpu_shares: 768
+    security_opt:
+      - no-new-privileges:true
+    pid: host
+    privileged: true
+    network_mode: host
+    restart: unless-stopped
+    ports:
+      - 61208:61208
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    #  - /volume1:/volume1:ro # Add if you want to monitor storage of individual volumes
+    #  - /volume2:/volume2:ro # Add if you want to monitor storage of individual volumes
+    #  - /volume3:/volume3:ro # Add if you want to monitor storage of individual volumes
+    environment:
+      GLANCES_OPT: -w

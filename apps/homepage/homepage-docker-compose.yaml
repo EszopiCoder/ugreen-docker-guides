@@ -1,0 +1,20 @@
+services:
+  homepage:
+    image: ghcr.io/gethomepage/homepage:latest
+    container_name: homepage
+    environment:
+      HOMEPAGE_ALLOWED_HOSTS: gethomepage.dev # required, may need port. See gethomepage.dev/installation/#homepage_allowed_hosts
+      # Must add NAS IP and Tailscale IP (if using) as allowed hosts: [NAS IP]:3000,[Tailscale NAS IP]:3000
+      PUID: $PUID # read them from .env
+      PGID: $PGID # read them from .env
+    env_file:
+      - .env # use .env if deploying in Docker. Add .env file to /volume1/docker/homepage
+    ports:
+      - 3000:3000 # may use another port if port 3000 is occupied
+    volumes:
+      - /volume1/docker/homepage/config:/app/config # Make sure your local config directory exists
+      - /var/run/docker.sock:/var/run/docker.sock:ro # optional, for docker integrations
+    restart: unless-stopped
+
+# UGREEN Setup Notes:
+# Control Panel -> Network -> Uncheck "Enable multiple gateways"

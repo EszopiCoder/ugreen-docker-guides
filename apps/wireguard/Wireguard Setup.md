@@ -1,4 +1,5 @@
-# Wireguard Setup for UGREEN NAS
+# WireGuard Setup for UGREEN NAS
+[Official WireGuard documentation](https://wg-easy.github.io/wg-easy/latest/)
 
 ## Requirements
 - Reverse proxy manager (Caddy, Nginx, Traefik)
@@ -35,14 +36,14 @@
     4. Click **Add** button. Router setup is complete!
 7. Set up WireGuard server
     1. Optional (RECOMMENDED): Set up a reverse proxy. I used Nginx and with a [free DuckDNS domain](https://www.duckdns.org) to test this out. Please see Nginx set up guide for tutorial on how to use Nginx.
-        * WARNING: Setting up without a reverse proxy poses security risks!
-    2. Go to WireGuard web UI at [NAS IP]:51821
+        * **WARNING: Setting up without a reverse proxy poses security risks!**
+    2. Go to WireGuard web UI at [NAS IP]:51821 or domain name
         * To find NAS IP, go to **Control Panel** -> **Network** -> **Network connection**. If IP is not static, click **Edit** and change to **static**.
         * Note: If you did not set up a reverse proxy and did not uncomment the environment code in the yaml file, you will not be able to login
     3. Follow set up instructions. For host name, click the **Suggest** button and choose **[Public Router IP] - IPv4 - Public**. To find your public router IP, go to [https://whatismyipaddress.com](https://whatismyipaddress.com).
 8. Add Wireguard clients
     1. Download WireGuard app on mobile device (if adding to mobile device)
-    2. On computer, go to WireGuard web UI at [NAS IP]:51821 and login
+    2. On computer, go to WireGuard web UI at [NAS IP]:51821 or domain name and login
         * Click **New** button and **name** connection
         * Click on **QR code button** to generate QR code
     3. On mobile phone, click **+** icon in the upper right hand corner. Click **Create from QR code**. Allow phone to scan QR code to complete setup.

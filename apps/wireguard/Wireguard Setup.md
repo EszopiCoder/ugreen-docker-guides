@@ -34,7 +34,8 @@
         * <img src="img/app-hosting-entry.png">
     4. Click **Add** button. Router setup is complete!
 7. Set up WireGuard server
-    1. Optional (RECOMMENDED): Set up reverse proxy. I used Nginx and with a [free DuckDNS domain](https://www.duckdns.org) to test this out. Please see Nginx set up guide for tutorial on how to use Nginx.
+    1. Optional (RECOMMENDED): Set up a reverse proxy. I used Nginx and with a [free DuckDNS domain](https://www.duckdns.org) to test this out. Please see Nginx set up guide for tutorial on how to use Nginx.
+        * WARNING: Setting up without a reverse proxy poses security risks!
     2. Go to WireGuard web UI at [NAS IP]:51821
         * To find NAS IP, go to **Control Panel** -> **Network** -> **Network connection**. If IP is not static, click **Edit** and change to **static**.
         * Note: If you did not set up a reverse proxy and did not uncomment the environment code in the yaml file, you will not be able to login

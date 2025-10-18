@@ -1,0 +1,47 @@
+services:
+  mealie:
+    image: ghcr.io/mealie-recipes/mealie:v3.3.2 # 
+    container_name: mealie
+    restart: always
+    ports:
+        - 9925:9000 # 
+    deploy:
+      resources:
+        limits:
+          memory: 1000M # 
+    volumes:
+      - /volume1/docker/mealie/data:/app/data/
+    environment:
+      # Set Backend ENV Variables Here
+      ALLOW_SIGNUP: false
+      PUID: 1002
+      PGID: 10
+      TZ: America/Chicago # Change to preferred timezone
+      BASE_URL: xxx.xxx.xxx.xxx # NAS IP Address
+      # Database Settings
+      DB_ENGINE: postgres
+      POSTGRES_USER: mealie
+      POSTGRES_PASSWORD: mealie
+      POSTGRES_SERVER: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: mealie
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  postgres:
+    container_name: postgres
+    image: postgres:17
+    restart: always
+    volumes:
+      - /volume1/docker/mealie/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: mealie
+      POSTGRES_USER: mealie
+      PGUSER: mealie
+      POSTGRES_DB: mealie
+    healthcheck:
+      test: [CMD, pg_isready]
+      interval: 30s
+      timeout: 20s
+      retries: 3

@@ -7,7 +7,7 @@ services:
     #  Optional:
     #  - PORT=51821
     #  - HOST=0.0.0.0
-    #  - INSECURE=true # Uncomment "environment:" in line 6 and this line if you do not have a reverse proxy set up. This is NOT recommended and poses security risks.
+    #  - INSECURE=true # ⚠️ Uncomment "environment:" in line 6 and this line if you do not have a reverse proxy set up. This is NOT recommended and poses security risks.
 
     image: ghcr.io/wg-easy/wg-easy:15
     container_name: wg-easy

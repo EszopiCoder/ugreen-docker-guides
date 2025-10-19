@@ -1,4 +1,4 @@
-# UGREEN Docker Guide Documentation
+# UGREEN Docker Guides
 
 Hello! This is my personal guide to install Docker applications on a UGREEN NAS. Please see below for guides!
 

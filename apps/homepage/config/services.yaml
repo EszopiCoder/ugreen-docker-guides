@@ -1,0 +1,155 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/configs/services/
+
+# Replace xxx.xxx.xxx.xxx with NAS IP or the entire URL with custom domain
+# Replace href with NAS IP and port OR the entire URL with custom domain
+
+- System Monitoring:
+    - System Information:
+        widget:
+            type: glances
+            url: http://xxx.xxx.xxx.xxx:61208
+            version: 4 # required only if running glances v4 or higher, defaults to 3
+            metric: info  # Assuming 'info' is the correct metric for the full-width widget
+
+- Glances Grid:
+    - CPU Usage:
+        widget:
+            type: glances
+            url: http://xxx.xxx.xxx.xxx:61208
+            version: 4 # required only if running glances v4 or higher, defaults to 3
+            metric: cpu
+    - Memory Usage:
+        widget:
+            type: glances
+            url: http://xxx.xxx.xxx.xxx:61208
+            version: 4 # required only if running glances v4 or higher, defaults to 3
+            metric: memory
+    - CPU Temperature:
+        widget:
+            type: glances
+            url: http://xxx.xxx.xxx.xxx:61208
+            version: 4 # required only if running glances v4 or higher, defaults to 3
+            metric: sensor:Package id 0
+    - Network Usage:
+        widget:
+            type: glances
+            url: http://xxx.xxx.xxx.xxx:61208
+            version: 4 # required only if running glances v4 or higher, defaults to 3
+            metric: network:eth0
+    - Disk Usage:
+        widget:
+            type: glances
+            url: http://xxx.xxx.xxx.xxx:61208
+            version: 4 # required only if running glances v4 or higher, defaults to 3
+            metric: disk:sda
+    - Top Processes:
+        widget:
+            type: glances
+            url: http://xxx.xxx.xxx.xxx:61208
+            version: 4 # required only if running glances v4 or higher, defaults to 3
+            metric: process
+
+- Self Hosted Apps:
+    - Immich:
+        icon: immich.svg
+        description: Photo Management
+        href: https://immich.example.duckdns.org
+        siteMonitor: http://xxx.xxx.xxx.xxx:2283
+        widget:
+            type: immich
+            url: http://xxx.xxx.xxx.xxx:2283
+            key: "{{HOMEPAGE_VAR_IMMICH_API_KEY}}"
+            version: 2 # optional, default is 1
+            fields: ["photos", "videos"]
+    - Kavita:
+        icon: kavita
+        description: Digital Library Management
+        href: "{{HOMEPAGE_VAR_KAVITA_LOGIN}}"
+        siteMonitor: http://xxx.xxx.xxx.xxx:5000
+        widget:
+            type: kavita
+            url: http://xxx.xxx.xxx.xxx:5000
+            key: "{{HOMEPAGE_VAR_KAVITA_API_KEY}}"
+    - Mealie:
+        icon: mealie
+        description: Recipe Management
+        href: https://mealie.example.duckdns.org
+        siteMonitor: http://xxx.xxx.xxx.xxx:9925
+        widget:
+            type: mealie
+            url: http://xxx.xxx.xxx.xxx:9925
+            key: "{{HOMEPAGE_VAR_MEALIE_API_KEY}}"
+            version: 2 # only required if version > 1, defaults to 1
+
+- Containers:
+    - UGREEN NAS:
+        icon: ugreen
+        description: DXP4800PLUS
+        href: https://nas.example.duckdns.org
+        siteMonitor: http://xxx.xxx.xxx.xxx:9999
+        widget:
+            type: glances
+            url: http://xxx.xxx.xxx.xxx:61208
+            version: 4 # required only if running glances v4 or higher, defaults to 3
+            metric: containers
+    - Portainer:
+        icon: portainer
+        description: Container Management
+        href: https://portainer.example.duckdns.org
+        siteMonitor: http://xxx.xxx.xxx.xxx:9000
+        widget:
+            type: portainer
+            url: http://xxx.xxx.xxx.xxx:9000
+            env: 3 # Locate environment number in Portainer by selecting an environment and look at the URL. It should be the number after "IP:PORT/#!/"
+            key: "{{HOMEPAGE_VAR_PORTAINER_API_KEY}}" # https://docs.portainer.io/api/access
+
+- Network:
+    - Router:
+        icon: router
+        description: AT&T BGW320-500
+        href: http://192.168.1.254
+        siteMonitor: http://192.168.1.254
+    - Speedtest Tracker:
+        icon: speedtest-tracker
+        description: Home Internet Speed Tracker
+        href: https://speedtest.example.duckdns.org
+        siteMonitor: http://xxx.xxx.xxx.xxx:8999
+        widget:
+            type: speedtest
+            url: http://xxx.xxx.xxx.xxx:8999
+            version: 1 # optional, default is 1
+            key: "{{HOMEPAGE_VAR_SPEEDTEST_API_KEY}}" # required for version 2
+            bitratePrecision: 3 # optional, default is 0
+    - Nginx Proxy Manager:
+        icon: nginx
+        description: Proxy Manager
+        href: https://npm.example.duckdns.org/
+        siteMonitor: http://xxx.xxx.xxx.xxx:81
+        widget:
+            type: npm
+            url: http://xxx.xxx.xxx.xxx:81
+            username: "{{HOMEPAGE_VAR_HOME_EMAIL}}"
+            password: "{{HOMEPAGE_VAR_NGINX_PASSWORD}}"
+- Remote Access (VPN):
+    - Tailscale:
+        icon: tailscale
+        description: Mesh VPN
+        href: https://login.tailscale.com
+        widget:
+            type: tailscale
+            deviceid: "{{HOMEPAGE_VAR_TAILSCALE_DEVICE_ID}}"
+            key: "{{HOMEPAGE_VAR_TAILSCALE_API_KEY}}"
+    - WireGuard:
+        icon: wireguard
+        description: Self-hosted VPN
+        href: https://wg.example.duckdns.org
+        siteMonitor: http://xxx.xxx.xxx.xxx:51821
+        widget:
+            type: wgeasy
+            url: http://xxx.xxx.xxx.xxx:51821
+            version: 2 # optional, default is 1
+            username: "{{HOMEPAGE_VAR_WIREGUARD_USERNAME}}" # required for v15 and above
+            password: "{{HOMEPAGE_VAR_WIREGUARD_PASSWORD}}"
+            threshold: 2 # optional

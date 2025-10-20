@@ -1,0 +1,41 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/configs/info-widgets/
+
+# Replace xxx.xxx.xxx.xxx with NAS IP or the entire URL with custom domain
+
+- glances:
+    url: http://xxx.xxx.xxx.xxx:61208
+    version: 4 # required only if running glances v4 or higher, defaults to 3
+    cpu: false
+    mem: false
+    expanded: true
+    label: Vol. 1 (Media)
+    disk: /volume1
+- glances:
+    url: http://xxx.xxx.xxx.xxx:61208
+    version: 4 # required only if running glances v4 or higher, defaults to 3
+    cpu: false
+    mem: false
+    expanded: true
+    label: Vol. 2 (Documents)
+    disk: /volume2
+- glances:
+    url: http://xxx.xxx.xxx.xxx:61208
+    version: 4 # required only if running glances v4 or higher, defaults to 3
+    cpu: false
+    mem: false
+    expanded: true
+    label: Vol. 3 (Applications)
+    disk: /volume3
+
+- search:
+    provider: google
+    target: _blank
+
+- datetime:
+    text_size: xl
+    format:
+      dateStyle: short
+      timeStyle: short
+      hour12: true

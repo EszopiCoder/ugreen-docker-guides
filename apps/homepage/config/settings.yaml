@@ -1,0 +1,19 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/configs/settings/
+
+disableCollapse: true
+statusStyle: "dot"
+
+providers:
+  openweathermap: openweathermapapikey
+  weatherapi: weatherapiapikey
+
+layout:
+    System Monitoring:
+        style: row
+        columns: 1  # Full-width section for the top Glances widget
+    Glances Grid:
+        header: false
+        style: row
+        columns: 3  # 3x2 grid for the other Glances widgets

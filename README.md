@@ -6,6 +6,7 @@ Hello! This is my personal guide to install Docker applications on a UGREEN NAS.
 | --- | --- | --- | --- |
 | Glances | 61208 | Self | In-progress |
 | [Homepage](https://github.com/EszopiCoder/ugreen-docker-guides/wiki/Homepage) | 3000 | Self | Complete |
+| [Lubelogger](https://github.com/EszopiCoder/ugreen-docker-guides/wiki/Lubelogger) | 8080 | Self | Complete |
 | [Mealie](https://github.com/EszopiCoder/ugreen-docker-guides/wiki/Mealie) | 9925 | Self | Complete |
 | [Nginx](https://github.com/EszopiCoder/ugreen-docker-guides/wiki/Nginx) | 80, 81, 443 | Self | Complete |
 | [Portainer](https://mariushosting.com/how-to-install-portainer-on-your-ugreen-nas/) | 9000 | Marius Hosting | Complete |

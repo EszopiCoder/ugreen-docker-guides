@@ -4,6 +4,7 @@ Hello! This is my personal guide to install Docker applications on a UGREEN NAS.
 
 | Application | Ports Used | Author | Status |
 | --- | --- | --- | --- |
+| [AdGuard Home](https://mariushosting.com/how-to-install-adguard-on-your-ugreen-nas/) | 3000 | Marius Hosting | Complete |
 | Glances | 61208 | Self | In-progress |
 | [Homepage](https://github.com/EszopiCoder/ugreen-docker-guides/wiki/Homepage) | 3000 | Self | Complete |
 | [LubeLogger](https://github.com/EszopiCoder/ugreen-docker-guides/wiki/Lubelogger) | 8080 | Self | Complete |

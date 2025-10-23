@@ -5,9 +5,9 @@ services:
         container_name: goaccess
         restart: always
         ports:
-            - '7880:7880'
+            - '7880:7880' # ⚠️ Change port if already occupied
         environment:
-            - TZ=America/Chicago        
+            - TZ=America/Chicago # ⚠️ Change to your timezone       
             #- SKIP_ARCHIVED_LOGS=False #optional
             #- DEBUG=False #optional
             #- BASIC_AUTH=False #optional
@@ -21,5 +21,5 @@ services:
             #- KEEP_LAST=30 #optional - Keep the last specified number of days in storage. https://goaccess.io/man
             #- PROCESSING_THREADS=1 #optional - This parameter sets the number of concurrent processing threads in the program's execution, affecting log data analysis, typically adjusted based on CPU cores. Default is 1. https://goaccess.io/man
         volumes:
-        - /volume1/docker/nginx/data/logs:/opt/log #change to file location of logs within nginx container
+        - /volume1/docker/nginx/data/logs:/opt/log # ⚠️ Change to file location of logs within Nginx container
         #- /path/to/host/custom:/opt/custom #optional, required if using log_type = CUSTOM

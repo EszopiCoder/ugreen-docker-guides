@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+  uptime-kuma:
+    image: louislam/uptime-kuma:latest
+    container_name: uptime-kuma
+    restart: always
+    ports:
+      - "3001:3001"  # This maps the container port "3001" to the host port "3001"
+    volumes:
+      - /volume1/docker/uptime-kuma/data:/app/data  # Configuring persistent storage
+      - /var/run/docker.sock:/var/run/docker.sock   # Add to monitor docker containers
+    environment:
+      - TZ=America/Chicago  # Set the timezone (change to your preferred local timezone so monitoring times are the same)
+      - UMASK=0022  # Set your file permissions manually
+    networks:
+      - kuma_network  # add your own custom network config
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3001"]
+      interval: 30s
+      retries: 3
+      start_period: 10s
+      timeout: 5s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+networks:
+  kuma_network:
+    driver: bridge

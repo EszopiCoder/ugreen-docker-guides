@@ -16,4 +16,5 @@ Hello! This is my personal guide to install Docker applications on a UGREEN NAS.
 | [Portainer](https://github.com/EszopiCoder/ugreen-docker-guides/wiki/Portainer) | 9443 | Self | Complete |
 | Speedtest Tracker | 8080 | | |
 | [Tailscale](https://support.ugnas.com/knowledgecenter-h5/#/articleDetail?custom=eyJ0eXBlIjoidGFnMDAyIiwibGFuZ3VhZ2UiOiJlbi1VUyIsImlkIjozNzI5LCJhcnRpY2xlSW5mb0lkIjo2MjIsImNsaWVudFR5cGUiOiJQQyIsImFydGljbGVWZXJzaW9uIjoiIn0%3D) | N/A | UGREEN | Complete |
+| [Uptime Kuma](https://github.com/EszopiCoder/ugreen-docker-guides/wiki/Uptime-Kuma) | 3001 | Self | Complete |
 | [WireGuard](https://github.com/EszopiCoder/ugreen-docker-guides/wiki/WireGuard) | 51820, 51821 | Self | Complete |

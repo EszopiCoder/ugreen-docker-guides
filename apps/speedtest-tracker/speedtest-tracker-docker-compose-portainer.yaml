@@ -1,0 +1,25 @@
+services:
+ speedtest-tracker:
+    image: ghcr.io/linuxserver/speedtest-tracker:latest
+    container_name: speedtest-tracker
+    healthcheck:
+      test: timeout 10s bash -c ':> /dev/tcp/127.0.0.1/80' || exit 1
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 90s
+    environment:
+       PUID: $PUID # read them from .env
+       PGID: $PGID # read them from .env
+       APP_TIMEZONE: America/Chicago    
+       DISPLAY_TIMEZONE: America/Chicago
+       DB_CONNECTION: sqlite
+       APP_KEY: base64:1FrU4Y4ufpvEZMsrZbid7DE97MPgtIn5pJfyQxPkKNs=
+       SPEEDTEST_SCHEDULE: 13 */1 * * * # At minute 13 past every hour
+    env_file:
+      - stack.env # use stack.env if deploying in Portainer. Add/upload variables in Portainer
+    volumes:
+      - /volume1/docker/speedtest:/config:rw
+    ports:
+      - 8999:80
+    restart: on-failure:5

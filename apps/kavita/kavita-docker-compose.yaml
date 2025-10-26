@@ -1,0 +1,12 @@
+services:
+  kavita:
+    image: jvmilazz0/kavita:latest # Using the stable branch from the official dockerhub repo.
+    container_name: kavita
+    volumes:
+      - /volume1/Media/Books:/books
+      - /volume1/docker/kavita/config:/kavita/config # /kavita/config must not be changed
+    environment:
+      - TZ=America/Chicago
+    ports:
+      - "5000:5000"
+    restart: unless-stopped

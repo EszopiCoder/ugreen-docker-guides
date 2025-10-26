@@ -13,6 +13,7 @@ services:
       - 3000:3000 # may use another port if port 3000 is occupied
     volumes:
       - /volume1/docker/homepage/config:/app/config # Make sure your local config directory exists
+      - /volume1/docker/homepage/icons:/app/public/icons # optional, for custom icons
       - /var/run/docker.sock:/var/run/docker.sock:ro # optional, for docker integrations
     restart: unless-stopped
 

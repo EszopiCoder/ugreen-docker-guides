@@ -1,0 +1,22 @@
+services:
+  diun:
+    image: crazymax/diun:latest
+    container_name: diun
+    command: serve
+    volumes:
+      - "/volume3/docker/diun/data:/data"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    environment:
+      - "TZ=America/Chicago"
+      - "DIUN_WATCH_WORKERS=20"
+      - "DIUN_WATCH_SCHEDULE=0 6 * * *" # everyday at 6AM
+      - "DIUN_WATCH_JITTER=30s"
+      - "DIUN_PROVIDERS_DOCKER=true"
+      - "DIUN_PROVIDERS_DOCKER_WATCHBYDEFAULT=true"
+      
+      - "DIUN_NOTIF_DISCORD_WEBHOOKURL=https://discord.com/api/webhooks/1433593190421630987/sEDvnEkqsBH6ElxcDSp4YfkZ61XWOePB4S_Dox8RVozKKbtEdYPsB0ZWQvqFzjqrHAoG"
+      - "DIUN_NOTIF_DISCORD_RENDERFIELDS=true"
+      - "DIUN_NOTIF_DISCORD_TIMEOUT=10s"
+    labels:
+      - "diun.enable=true"
+    restart: always

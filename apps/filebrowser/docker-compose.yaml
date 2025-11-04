@@ -1,0 +1,14 @@
+services:
+  filebrowser:
+    image: filebrowser/filebrowser:s6
+    container_name: filebrowser
+    ports:
+      - "8511:80"  # Host_port:Container_port - Access FileBrowser at http://localhost:8511
+    volumes:
+      - /volume1:/srv # Mount your desired file directory
+      - /volume1/docker/filebrowser/config:/config # Persistent configuration directory
+      - /volume1/docker/filebrowser/database/filebrowser.db:/database/filebrowser.db # Persistent database file
+    environment:
+      - PUID=1000 # Change to PUID in Docker
+      - PGID=1000 # Change to PGID in Docker
+    restart: unless-stopped

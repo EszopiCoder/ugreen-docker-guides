@@ -69,6 +69,7 @@ services:
       PAPERLESS_TIKA_ENABLED: 1
       PAPERLESS_TIKA_GOTENBERG_ENDPOINT: http://gotenberg:3000
       PAPERLESS_TIKA_ENDPOINT: http://tika:9998
+      PAPERLESS_OCR_USER_ARGS: '{"continue_on_soft_render_error": true}' # Continue to upload even if error occurs with OCR
   gotenberg:
     image: docker.io/gotenberg/gotenberg:8.24
     restart: unless-stopped
